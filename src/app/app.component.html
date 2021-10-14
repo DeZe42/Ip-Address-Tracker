@@ -1,0 +1,42 @@
+<div class="ip-address-tracker">
+  <div class="ip-address-tracker__top">
+    <span class="ip-address-tracker__top--title">IP Address Tracker</span>
+    <div class="ip-address-tracker__top--input-container">
+      <input type="text" placeholder="Type an IP address here..." [formControl]="inputCtrl" (keyup)="keyPress($event)">
+      <div class="button" (click)="getIpAddressDetails()">
+        <img src="assets/images/icon-arrow.svg">
+      </div>
+    </div>
+  </div>
+  <div class="ip-address-tracker__bottom">
+    <div class="ip-address-tracker__bottom--card">
+      <div class="column">
+        <span class="column__title">IP ADDRESS</span>
+        <span *ngIf="!ipAddressData">-</span>
+        <span class="column__text" *ngIf="ipAddressData">{{ ipAddressData?.query }}</span>
+      </div>
+      <hr class="line">
+      <div class="column">
+        <span class="column__title">LOCATION</span>
+        <span *ngIf="!ipAddressData">-</span>
+        <span class="column__text" *ngIf="ipAddressData">{{ ipAddressData?.region }}, {{ ipAddressData?.city }} {{ ipAddressData?.zip }}</span>
+      </div>
+      <hr class="line">
+      <div class="column">
+        <span class="column__title">TIMEZONE</span>
+        <span *ngIf="!ipAddressData">-</span>
+        <span class="column__text" *ngIf="ipAddressData">{{ ipAddressData?.timezone }}</span>
+      </div>
+      <hr class="line">
+      <div class="column">
+        <span class="column__title">ISP</span>
+        <span *ngIf="!ipAddressData">-</span>
+        <span class="column__text" *ngIf="ipAddressData">{{ ipAddressData?.isp }}</span>
+      </div>
+    </div>
+    <div class="ip-address-tracker__bottom--map-container">
+      <div class="loader"></div>
+      <app-map [lat]="ipAddressData?.lat" [lon]="ipAddressData?.lon" [change]="change"></app-map>
+    </div>
+  </div>
+</div>
