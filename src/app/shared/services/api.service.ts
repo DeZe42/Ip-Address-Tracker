@@ -14,18 +14,18 @@ export class ApiService {
   constructor(
     private http: HttpClient
   ) {
-    this.getUserIpAddress();
+    
   }
 
-  getUserIpAddress() {
-    this.http.get(environment.apiIpAddressURL).subscribe(res => {
-      this.ipAddress$.next(res);
-    });
-  }
-
-  getIpAddressDetails(ipAddress) {
-    this.http.get(environment.apiIpAddressDetailsURL + ipAddress).subscribe(res => {
-      this.ipAddressDetails$.next(res);
-    });
+  getIpAddressDetails(ipAddress?) {
+    if (ipAddress) {
+      this.http.get(environment.apiIpAddressDetailsURL + ipAddress + '/json?token=' + environment.apiKey).subscribe(res => {
+        this.ipAddressDetails$.next(res);
+      });
+    } else {
+      this.http.get(environment.apiIpAddressDetailsURL + 'json?token=' + environment.apiKey).subscribe(res => {
+        this.ipAddressDetails$.next(res);
+      });
+    }
   }
 }

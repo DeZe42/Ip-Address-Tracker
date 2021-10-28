@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   inputCtrl: FormControl = new FormControl('');
   ipAddressData;
   change;
+  lon;
+  lat;
 
   constructor(
     private apiService: ApiService,
@@ -22,6 +24,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.apiService.getIpAddressDetails();
     this.dataService.isLoading$.subscribe(res => {
       this.change = res;
     });
@@ -29,12 +32,14 @@ export class AppComponent implements OnInit {
       this.dataService.isLoading$.next(true);
       if (res) {
         this.inputCtrl.setValue(res.ip);
-        this.getIpAddressDetails();
       }
     })
     this.apiService.ipAddressDetails$.subscribe(res => {
       if (res) {
+        this.inputCtrl.setValue(res.ip);
         this.ipAddressData = res;
+        this.lat = res.loc.split(',')[0];
+        this.lon = res.loc.split(',')[1];
         this.dataService.isLoading$.next(false);
       }
     });
@@ -52,5 +57,9 @@ export class AppComponent implements OnInit {
       this.change = true;
       this.apiService.getIpAddressDetails(this.inputCtrl.value);
     }
+  }
+
+  getIsp(data) {
+    if (data) return data.substr(data.indexOf(" ") + 1);
   }
 }

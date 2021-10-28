@@ -92,7 +92,7 @@ $dark-grey: hsl(0, 0%, 59%);
                 }
                 &__text {
                     font-size: 24px;
-                    line-height: 24px;
+                    line-height: 32px;
                     font-weight: 500;
                     color: $very-dark-grey;
                 }
@@ -120,7 +120,7 @@ $dark-grey: hsl(0, 0%, 59%);
     }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1035px) {
     .ip-address-tracker {
         &__top {
             height: 40vh;

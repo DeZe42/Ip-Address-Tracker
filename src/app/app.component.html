@@ -13,13 +13,13 @@
       <div class="column">
         <span class="column__title">IP ADDRESS</span>
         <span *ngIf="!ipAddressData">-</span>
-        <span class="column__text" *ngIf="ipAddressData">{{ ipAddressData?.query }}</span>
+        <span class="column__text" *ngIf="ipAddressData">{{ ipAddressData?.ip }}</span>
       </div>
       <hr class="line">
       <div class="column">
         <span class="column__title">LOCATION</span>
         <span *ngIf="!ipAddressData">-</span>
-        <span class="column__text" *ngIf="ipAddressData">{{ ipAddressData?.region }}, {{ ipAddressData?.city }} {{ ipAddressData?.zip }}</span>
+        <span class="column__text" *ngIf="ipAddressData">{{ ipAddressData?.country }}, {{ ipAddressData?.region }}, {{ ipAddressData?.city }} {{ ipAddressData?.postal }}</span>
       </div>
       <hr class="line">
       <div class="column">
@@ -31,12 +31,12 @@
       <div class="column">
         <span class="column__title">ISP</span>
         <span *ngIf="!ipAddressData">-</span>
-        <span class="column__text" *ngIf="ipAddressData">{{ ipAddressData?.isp }}</span>
+        <span class="column__text" *ngIf="ipAddressData">{{ getIsp(ipAddressData.org) }}</span>
       </div>
     </div>
     <div class="ip-address-tracker__bottom--map-container">
       <div class="loader"></div>
-      <app-map [lat]="ipAddressData?.lat" [lon]="ipAddressData?.lon" [change]="change"></app-map>
+      <app-map [lat]="lat" [lon]="lon" [change]="change"></app-map>
     </div>
   </div>
 </div>

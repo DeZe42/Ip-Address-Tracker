@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ip-address-tracker-3e2fc": {
+      "hosting": {
+        "Ip-Address-Tracker": [
+          "ip-address-tracker-3e2fc"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ip-address-tracker-3e2fc"
+  }
+}

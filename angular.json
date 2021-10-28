@@ -108,6 +108,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Ip-Address-Tracker:build:production",
+            "firebaseProject": "ip-address-tracker-3e2fc",
+            "firebaseHostingSite": "ip-address-tracker-3e2fc"
+          }
         }
       }
     }
