@@ -3,12 +3,12 @@ export const environment = {
   apiIpAddressDetailsURL: "https://ipinfo.io/",
   apiKey: 'e76a4c9a063cea',
   firebase: {
-    apiKey: "AIzaSyDeBhnEdnLLS3hCytBE4TLkutj3EBcNLxs",
-    authDomain: "ip-address-tracker-3e2fc.firebaseapp.com",
-    projectId: "ip-address-tracker-3e2fc",
-    storageBucket: "ip-address-tracker-3e2fc.appspot.com",
-    messagingSenderId: "282789263190",
-    appId: "1:282789263190:web:325d972864e5f64d96c8f7",
-    measurementId: "G-48N163E3S5"
+    apiKey: "AIzaSyAi0t6KueK0cCbRgMxz0d0F52QZWRmS20o",
+    authDomain: "portfolio-projects-4b9da.firebaseapp.com",
+    projectId: "portfolio-projects-4b9da",
+    storageBucket: "portfolio-projects-4b9da.appspot.com",
+    messagingSenderId: "949907467161",
+    appId: "1:949907467161:web:a35864a6e7f6c8f6494108",
+    measurementId: "G-ZGKGDN2TBK"
   }
 };

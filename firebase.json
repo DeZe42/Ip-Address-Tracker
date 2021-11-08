@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "ip-address-tracker",
     "public": "dist",
     "ignore": [
       "firebase.json",
